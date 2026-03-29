@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ceqpnvct8j5a"]
+
+[ext_resource type="PackedScene" uid="uid://dbds4ksi7l3iu" path="res://src/ambiente/cenas/personagem_ambiente.tscn" id="1_mjf1b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjf1b"]
+size = Vector2(640, 16)
+
+[node name="Main" type="Node2D" unique_id=1131071596]
+
+[node name="Personagem_Ambiente" parent="." unique_id=1435729122 instance=ExtResource("1_mjf1b")]
+position = Vector2(80, 224)
+JUMP_VELOCITY = -600.0
+GRAVITY_SCALE = 1.5
+
+[node name="chao" type="StaticBody2D" parent="." unique_id=1432556116]
+position = Vector2(580, 351)
+
+[node name="parede_invisivel" type="CollisionShape2D" parent="chao" unique_id=653073649]
+position = Vector2(-260, 1)
+shape = SubResource("RectangleShape2D_mjf1b")

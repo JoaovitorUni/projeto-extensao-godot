@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dbds4ksi7l3iu"]
+
+[ext_resource type="Script" uid="uid://b1qbhdybi2lmc" path="res://src/ambiente/scripts/personagem_move.gd" id="1_pthbm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ctx"]
+size = Vector2(32, 32)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ceftu"]
+
+[node name="Personagem_Ambiente" type="CharacterBody2D" unique_id=1435729122]
+script = ExtResource("1_pthbm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1296782720]
+shape = SubResource("RectangleShape2D_e4ctx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2114339576]
+scale = Vector2(32, 32)
+texture = SubResource("CanvasTexture_ceftu")
