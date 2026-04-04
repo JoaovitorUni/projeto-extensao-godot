@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://btj4v2o1gb7d6"]
+
+[ext_resource type="PackedScene" uid="uid://ufcqmx2rq0ij" path="res://src/levels/street/game_grid.tscn" id="1_havfo"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_havfo"]
+
+[node name="main" type="Node2D" unique_id=935161253]
+
+[node name="Backgroud" type="Sprite2D" parent="." unique_id=2132611659]
+position = Vector2(240, 134.99998)
+scale = Vector2(480, 270)
+texture = SubResource("CanvasTexture_havfo")
+
+[node name="GameGrid" parent="." unique_id=1330458222 instance=ExtResource("1_havfo")]
+position = Vector2(280, 155)

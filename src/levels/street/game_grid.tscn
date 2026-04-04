@@ -1,0 +1,18 @@
+[gd_scene format=4 uid="uid://ufcqmx2rq0ij"]
+
+[ext_resource type="Texture2D" uid="uid://cx1kd7tcgys3r" path="res://assets/levels/temp_tilemap.png" id="1_ojoyj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mtwtt"]
+texture = ExtResource("1_ojoyj")
+texture_region_size = Vector2i(40, 40)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4cgwl"]
+tile_size = Vector2i(40, 40)
+sources/3 = SubResource("TileSetAtlasSource_mtwtt")
+
+[node name="GameGrid" type="TileMapLayer" unique_id=1330458222]
+tile_map_data = PackedByteArray("AAD9////AwAAAAAAAAD+////AwAAAAAAAAD/////AwAAAAAAAAAAAP//AwAAAAAAAAABAP//AwAAAAAAAAACAP//AwAAAAAAAAADAP//AwAAAAAAAAD9/wAAAwAAAAAAAAD+/wAAAwAAAAAAAAD//wAAAwAAAAAAAAAAAAAAAwAAAAAAAAABAAAAAwAAAAAAAAACAAAAAwAAAAAAAAADAAAAAwAAAAAAAAD9//7/AwAAAAAAAAD+//7/AwAAAAAAAAD///7/AwAAAAAAAAAAAP7/AwAAAAAAAAABAP7/AwAAAAAAAAACAP7/AwAAAAAAAAADAP7/AwAAAAAAAAD9/wEAAwAAAAAAAAD+/wEAAwAAAAAAAAD//wEAAwAAAAAAAAAAAAEAAwAAAAAAAAABAAEAAwAAAAAAAAACAAEAAwAAAAAAAAADAAEAAwAAAAAAAAD9//3/AwAAAAAAAAD+//3/AwAAAAAAAAD///3/AwAAAAAAAAAAAP3/AwAAAAAAAAABAP3/AwAAAAAAAAACAP3/AwAAAAAAAAADAP3/AwAAAAAAAAAEAP3/AwACAAAAAAAEAP7/AwACAAAAAAAEAP//AwACAAAAAAAEAAAAAwACAAAAAAAEAAEAAwACAAAAAAD8//3/AwAAAAAAAAD8/wAAAwAAAAAAAAD8////AwAAAAAAAAD8//7/AwAAAAAAAAD8/wEAAwAAAAAAAAA=")
+tile_set = SubResource("TileSet_4cgwl")
