@@ -1,14 +1,14 @@
 extends TileMapLayer
 class_name GridManager
 
-var cells = {}
+var _placed_objects: Dictionary = {}
 
 func get_grid_cell(cursor_position: Vector2) -> Vector2i:
 	return local_to_map(cursor_position)
 
 func can_place(cursor_position: Vector2) -> bool:
 	var cell = get_grid_cell(cursor_position)
-	if cells.has(cell):
+	if _placed_objects.has(cell):
 		return false
 	return true
 
@@ -18,4 +18,4 @@ func get_cel_position(cursor_position: Vector2) -> Vector2:
 
 func place(cursor_position: Vector2, node: Node2D):
 	var cell = get_grid_cell(cursor_position)
-	cells[cell] = node
+	_placed_objects[cell] = node
