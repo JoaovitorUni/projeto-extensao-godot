@@ -16,5 +16,5 @@ func _input(event):
 
 func _show_tower_preview(mouse_pos: Vector2):
 	var cell_coords = grid_manager.get_grid_cell(mouse_pos)
-	var cell_center_pos = grid_manager.get_cell_position(mouse_pos)
+	var cell_center_pos = grid_manager.get_cell_position_global(mouse_pos)
 	print("Posição Célula: ", cell_coords, cell_center_pos)
