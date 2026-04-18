@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://ufcqmx2rq0ij"]
 
+[ext_resource type="Script" uid="uid://gpav0t5hf3dg" path="res://src/levels/street/scripts/grid_component.gd" id="1_dkwi4"]
 [ext_resource type="Texture2D" uid="uid://cx1kd7tcgys3r" path="res://assets/levels/temp_tilemap.png" id="1_ojoyj"]
 [ext_resource type="Script" uid="uid://ca1wvmown2fqh" path="res://src/levels/street/scripts/grid_manager.gd" id="2_0hots"]
 
@@ -14,7 +15,10 @@ texture_region_size = Vector2i(40, 40)
 tile_size = Vector2i(40, 40)
 sources/3 = SubResource("TileSetAtlasSource_mtwtt")
 
-[node name="GameGrid" type="TileMapLayer" unique_id=1330458222]
+[node name="GridComponent" type="Node2D" unique_id=575331148]
+script = ExtResource("1_dkwi4")
+
+[node name="grid" type="TileMapLayer" parent="." unique_id=1330458222]
 tile_map_data = PackedByteArray("AAD9////AwAAAAAAAAD+////AwAAAAAAAAD/////AwAAAAAAAAAAAP//AwAAAAAAAAABAP//AwAAAAAAAAACAP//AwAAAAAAAAADAP//AwAAAAAAAAD9/wAAAwAAAAAAAAD+/wAAAwAAAAAAAAD//wAAAwAAAAAAAAAAAAAAAwAAAAAAAAABAAAAAwAAAAAAAAACAAAAAwAAAAAAAAADAAAAAwAAAAAAAAD9//7/AwAAAAAAAAD+//7/AwAAAAAAAAD///7/AwAAAAAAAAAAAP7/AwAAAAAAAAABAP7/AwAAAAAAAAACAP7/AwAAAAAAAAADAP7/AwAAAAAAAAD9/wEAAwAAAAAAAAD+/wEAAwAAAAAAAAD//wEAAwAAAAAAAAAAAAEAAwAAAAAAAAABAAEAAwAAAAAAAAACAAEAAwAAAAAAAAADAAEAAwAAAAAAAAD9//3/AwAAAAAAAAD+//3/AwAAAAAAAAD///3/AwAAAAAAAAAAAP3/AwAAAAAAAAABAP3/AwAAAAAAAAACAP3/AwAAAAAAAAADAP3/AwAAAAAAAAAEAP3/AwACAAAAAAAEAP7/AwACAAAAAAAEAP//AwACAAAAAAAEAAAAAwACAAAAAAAEAAEAAwACAAAAAAD8//3/AwAAAAAAAAD8/wAAAwAAAAAAAAD8////AwAAAAAAAAD8//7/AwAAAAAAAAD8/wEAAwAAAAAAAAA=")
 tile_set = SubResource("TileSet_4cgwl")
 script = ExtResource("2_0hots")
