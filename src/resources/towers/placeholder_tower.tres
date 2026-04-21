@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TowerData" format=3 uid="uid://c07y0vyhej837"]
+
+[ext_resource type="Script" uid="uid://cyf1g7yivhapi" path="res://src/resources/tower_data.gd" id="1_cianc"]
+
+[resource]
+script = ExtResource("1_cianc")
+name = "Placeholder"
+max_health = 100.0
+metadata/_custom_type_script = "uid://cyf1g7yivhapi"
