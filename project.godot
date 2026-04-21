@@ -15,6 +15,10 @@ run/main_scene="uid://btj4v2o1gb7d6"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+GameEvents="*uid://crqp0jyefws35"
+
 [display]
 
 window/size/viewport_width=480
