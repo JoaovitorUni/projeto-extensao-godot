@@ -5,3 +5,4 @@ class_name TowerData
 @export var cost: int = 0
 @export var max_health: float = 0
 @export var texture: Texture
+@export var scene: PackedScene
