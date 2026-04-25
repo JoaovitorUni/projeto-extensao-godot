@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="TowerData" format=3 uid="uid://c07y0vyhej837"]
 
 [ext_resource type="Script" uid="uid://cyf1g7yivhapi" path="res://src/resources/tower_data.gd" id="1_cianc"]
+[ext_resource type="PackedScene" uid="uid://c50jpu8gnlier" path="res://src/towers/placeholder/placeholder_tower.tscn" id="1_u6mb0"]
 [ext_resource type="Texture2D" uid="uid://c8wfnredt3r4d" path="res://assets/sprites/tower_placeholder.png" id="2_uts8m"]
 
 [resource]
@@ -8,4 +9,5 @@ script = ExtResource("1_cianc")
 name = "Placeholder"
 max_health = 100.0
 texture = ExtResource("2_uts8m")
+scene = ExtResource("1_u6mb0")
 metadata/_custom_type_script = "uid://cyf1g7yivhapi"

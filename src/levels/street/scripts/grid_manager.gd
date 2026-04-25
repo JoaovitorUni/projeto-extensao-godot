@@ -20,6 +20,10 @@ func can_place(global_pos: Vector2) -> bool:
 			return true
 	return false
 
+func get_cell_position(global_pos: Vector2) -> Vector2:
+	var cell = get_grid_cell(global_pos)
+	return map_to_local(cell)
+
 func get_cell_position_global(global_pos: Vector2) -> Vector2:
 	var cell = get_grid_cell(global_pos)
 	return to_global(map_to_local(cell))

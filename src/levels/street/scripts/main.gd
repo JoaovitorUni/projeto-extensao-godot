@@ -14,6 +14,9 @@ func _input(event: InputEvent) -> void:
 
 func _on_tower_grabbed(tower_data: TowerData) -> void:
 	_grabbed_tower = true
+	_create_ghost_tower(tower_data)
+
+func _create_ghost_tower(tower_data: TowerData):
 	var ghost_tower = GhostTower.new(tower_data)
 	add_child(ghost_tower)
 
