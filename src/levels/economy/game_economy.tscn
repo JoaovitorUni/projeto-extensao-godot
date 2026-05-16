@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dyle0knba53np"]
+
+[ext_resource type="Script" uid="uid://btlvjeauihw82" path="res://src/levels/economy/economy_component.gd" id="1_jqd0n"]
+[ext_resource type="Script" uid="uid://b3j3suhp7u7ss" path="res://src/levels/economy/economy_manager.gd" id="2_u1nut"]
+
+[node name="EconomyComponent" type="Node" unique_id=2117294381]
+script = ExtResource("1_jqd0n")
+
+[node name="economy" type="Node" parent="." unique_id=281360662]
+script = ExtResource("2_u1nut")

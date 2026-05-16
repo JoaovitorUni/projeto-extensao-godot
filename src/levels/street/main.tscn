@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ufcqmx2rq0ij" path="res://src/levels/street/grid/game_grid.tscn" id="1_havfo"]
 [ext_resource type="Script" uid="uid://ch1eyl77mutss" path="res://src/levels/street/scripts/main.gd" id="1_yaeqf"]
+[ext_resource type="PackedScene" uid="uid://dyle0knba53np" path="res://src/levels/economy/game_economy.tscn" id="2_3pqj8"]
 [ext_resource type="Script" uid="uid://yjb5mgvswfky" path="res://src/levels/street/scripts/button.gd" id="2_img7v"]
 [ext_resource type="Resource" uid="uid://c07y0vyhej837" path="res://src/resources/towers/placeholder_tower.tres" id="3_7c5if"]
 
@@ -15,6 +16,8 @@ metadata/_edit_horizontal_guides_ = [-34.0]
 position = Vector2(240, 134.99998)
 scale = Vector2(480, 270)
 texture = SubResource("CanvasTexture_havfo")
+
+[node name="EconomyComponent" parent="." unique_id=2117294381 instance=ExtResource("2_3pqj8")]
 
 [node name="GridComponent" parent="." unique_id=575331148 instance=ExtResource("1_havfo")]
 position = Vector2(120, 30)
