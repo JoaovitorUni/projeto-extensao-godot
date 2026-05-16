@@ -1,5 +1,5 @@
 extends Node2D
-class_name CurrencyDrop
+class_name Currency
 
 @export var fall_speed: float = 40.0
 @export var lifetime: float = 8.0

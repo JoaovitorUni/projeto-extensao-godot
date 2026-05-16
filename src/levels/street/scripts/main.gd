@@ -51,3 +51,9 @@ func _set_debug_economy_events_handlers() -> void:
 	GameEvents.tower_purchase_denied.connect(func(tower_data: TowerData):
 		print("Evento: tower_purchase_denied. TowerData: %s." % tower_data.name)
 	)
+	GameEvents.currency_collected.connect(func(value: int):
+		print("Evento: currency_collected. Value: %d." % value)
+	)
+	GameEvents.currency_changed.connect(func(new_currency: int):
+		print("Evento: currency_changed. New Currency: %d." % new_currency)
+	)
