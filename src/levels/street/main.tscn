@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dyle0knba53np" path="res://src/levels/economy/game_economy.tscn" id="2_3pqj8"]
 [ext_resource type="Script" uid="uid://yjb5mgvswfky" path="res://src/levels/street/scripts/button.gd" id="2_img7v"]
 [ext_resource type="Resource" uid="uid://c07y0vyhej837" path="res://src/resources/towers/placeholder_tower.tres" id="3_7c5if"]
+[ext_resource type="PackedScene" uid="uid://cy7ac24beiw1v" path="res://src/levels/money_spawner/currency_spawner.tscn" id="3_pja8f"]
+[ext_resource type="PackedScene" uid="uid://dib7udbsyklcn" path="res://src/levels/money_spawner/currency/currency.tscn" id="6_pja8f"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_havfo"]
 
@@ -21,6 +23,9 @@ texture = SubResource("CanvasTexture_havfo")
 
 [node name="GridComponent" parent="." unique_id=575331148 instance=ExtResource("1_havfo")]
 position = Vector2(120, 30)
+
+[node name="CurrencySpawner" parent="GridComponent" unique_id=1227739554 instance=ExtResource("3_pja8f")]
+currency_scene = ExtResource("6_pja8f")
 
 [node name="Button" type="Button" parent="." unique_id=1385939725]
 offset_left = 16.0
