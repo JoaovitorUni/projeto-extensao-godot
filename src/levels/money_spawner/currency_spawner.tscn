@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cy7ac24beiw1v"]
+
+[ext_resource type="Script" uid="uid://bow3gyo7jjn8g" path="res://src/levels/money_spawner/currency_spawner_component.gd" id="1_ow375"]
+
+[node name="CurrencySpawner" type="Node" unique_id=1227739554]
+script = ExtResource("1_ow375")

@@ -20,6 +20,18 @@ func _input(event):
 		if grid_manager.can_place(mouse_pos):
 			_show_tower_preview(mouse_pos)
 
+func get_global_bounds() -> Rect2:
+	if not grid_manager:
+		return Rect2()
+		
+	var used_rect: Rect2i = grid_manager.get_used_rect()
+	var tile_size: Vector2 = Vector2(grid_manager.tile_set.tile_size)
+	
+	var local_pos: Vector2 = Vector2(used_rect.position) * tile_size
+	var local_size: Vector2 = Vector2(used_rect.size) * tile_size
+	
+	return Rect2(to_global(local_pos), local_size)
+
 func _try_place_tower() -> void:
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	if grid_manager.can_place(mouse_pos):

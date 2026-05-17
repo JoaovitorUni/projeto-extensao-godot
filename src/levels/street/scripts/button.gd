@@ -6,4 +6,4 @@ func _ready() -> void:
 	self.button_down.connect(_on_button_down)
 
 func _on_button_down() -> void:
-	GameEvents.tower_grabbed.emit(tower_data)
+	GameEvents.tower_purchase_requested.emit(tower_data)

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dib7udbsyklcn"]
+
+[ext_resource type="Script" uid="uid://baqsreadhvvxd" path="res://src/levels/money_spawner/currency/currency.gd" id="1_6lcsy"]
+[ext_resource type="Texture2D" uid="uid://si7e4ajkmdou" path="res://assets/sprites/money.png" id="2_wricm"]
+[ext_resource type="Script" uid="uid://buylwhgjfxkt7" path="res://src/levels/money_spawner/currency/currency_area.gd" id="3_wlsgi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukmhj"]
+size = Vector2(32, 32)
+
+[node name="Currency" type="Node2D" unique_id=1477004105]
+script = ExtResource("1_6lcsy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=298031687]
+texture = ExtResource("2_wricm")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=334390856]
+script = ExtResource("3_wlsgi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=722706296]
+shape = SubResource("RectangleShape2D_ukmhj")
