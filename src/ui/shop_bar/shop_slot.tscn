@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://t5ab18p0twhy"]
+
+[ext_resource type="Script" uid="uid://db23ed3t33and" path="res://src/ui/shop_bar/scripts/shop_slot.gd" id="1_igsi3"]
+
+[node name="ShopSlot" type="TextureButton" unique_id=1725606293]
+script = ExtResource("1_igsi3")
+
+[node name="CostLabel" type="Label" parent="." unique_id=1921946071]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+horizontal_alignment = 2
+vertical_alignment = 2

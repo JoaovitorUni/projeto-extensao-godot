@@ -1,17 +1,24 @@
 extends Node2D
 
+@export_category("Level Config")
+@export var shop_bar_scene: PackedScene # TODO: Remover isso ao componentizar.
+@export var level_towers: Array[TowerData] = []
+
+@export_category("Debug")
 @export var debug_tower_events: bool = false
 @export var debug_economy_events: bool = false
 
 var _grabbed_tower: bool = false
 
 func _ready() -> void:
+	LevelLayers.setup($Game, $UI, $Overlay)
 	GameEvents.tower_purchase_approved.connect(_on_tower_purchase_approved)
 	GameEvents.tower_grabbed.connect(_on_tower_grabbed)
 	if debug_tower_events:
 		_set_debug_tower_events_handlers()
 	if debug_economy_events:
 		_set_debug_economy_events_handlers()
+	_build_level_ui()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and not event.is_pressed() and _grabbed_tower:
@@ -26,7 +33,7 @@ func _on_tower_grabbed(tower_data: TowerData) -> void:
 
 func _create_ghost_tower(tower_data: TowerData):
 	var ghost_tower = GhostTower.new(tower_data)
-	add_child(ghost_tower)
+	LevelLayers.add_child_overlay(ghost_tower)
 
 func _on_tower_dropped() -> void:
 	_grabbed_tower = false
@@ -57,3 +64,14 @@ func _set_debug_economy_events_handlers() -> void:
 	GameEvents.currency_changed.connect(func(new_currency: int):
 		print("Evento: currency_changed. New Currency: %d." % new_currency)
 	)
+
+# TODO: Componentizar construção da UI.
+func _build_level_ui() -> void:
+	if not shop_bar_scene:
+		print("UI Build: Não foi possível achar a cena `shop_bar`.")
+		return
+
+	var shop_instance = shop_bar_scene.instantiate() as ShopBar
+	shop_instance.position = Vector2(16, 30)
+	LevelLayers.add_child_overlay(shop_instance)
+	shop_instance.setup(level_towers)
