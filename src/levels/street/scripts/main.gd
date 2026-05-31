@@ -73,5 +73,5 @@ func _build_level_ui() -> void:
 
 	var shop_instance = shop_bar_scene.instantiate() as ShopBar
 	shop_instance.position = Vector2(16, 30)
-	LevelLayers.add_child_overlay(shop_instance)
+	LevelLayers.add_child_ui(shop_instance)
 	shop_instance.setup(level_towers)
