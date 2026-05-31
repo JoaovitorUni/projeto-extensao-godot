@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c6qgqvw5avm5a"]
+
+[ext_resource type="Script" uid="uid://d1cxrm5wjkpk6" path="res://src/ui/currency_counter/scripts/currency_counter.gd" id="1_snwxb"]
+
+[node name="CurrencyCounter" type="PanelContainer" unique_id=105132266]
+custom_minimum_size = Vector2(64, 0)
+script = ExtResource("1_snwxb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1185961765]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=910902642]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.627451, 0, 1)
+text = " R$"
+vertical_alignment = 1
+
+[node name="AmountLabel" type="Label" parent="HBoxContainer" unique_id=1819702057]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0.627451, 0, 1)
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
