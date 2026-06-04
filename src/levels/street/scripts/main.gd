@@ -1,8 +1,10 @@
 extends Node2D
 
 @export_category("Level Config")
-@export var shop_bar_scene: PackedScene # TODO: Remover isso ao componentizar.
 @export var level_towers: Array[TowerData] = []
+# TODO: Remover isso ao componentizar.
+@export var shop_bar_scene: PackedScene
+@export var currency_counter_scene: PackedScene
 
 @export_category("Debug")
 @export var debug_tower_events: bool = false
@@ -67,11 +69,15 @@ func _set_debug_economy_events_handlers() -> void:
 
 # TODO: Componentizar construção da UI.
 func _build_level_ui() -> void:
-	if not shop_bar_scene:
-		print("UI Build: Não foi possível achar a cena `shop_bar`.")
+	if not shop_bar_scene or not currency_counter_scene:
+		print("UI Build: Não foi possível achar todas as cenas necessárias para montar a UI.")
 		return
 
 	var shop_instance = shop_bar_scene.instantiate() as ShopBar
 	shop_instance.position = Vector2(16, 30)
 	LevelLayers.add_child_ui(shop_instance)
 	shop_instance.setup(level_towers)
+
+	var currency_counter_instance = currency_counter_scene.instantiate() as CurrencyCounter
+	currency_counter_instance.position = Vector2(16, 4)
+	LevelLayers.add_child_ui(currency_counter_instance)
