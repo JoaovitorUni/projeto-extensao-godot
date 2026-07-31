@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://6vv3q7qnihe6" path="res://src/components/combat/hurtbox_component.gd" id="5_1q8fn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1q8fn"]
-size = Vector2(4, 6)
+size = Vector2(2, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1trsv"]
 size = Vector2(32, 32)
@@ -38,7 +38,6 @@ faction = 1
 metadata/_custom_type_script = "uid://c8wgejtq2j4rq"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent" unique_id=1578890862]
-position = Vector2(-18, 0)
 shape = SubResource("RectangleShape2D_1q8fn")
 
 [node name="HurtboxComponent" type="Area2D" parent="." unique_id=194017858]
