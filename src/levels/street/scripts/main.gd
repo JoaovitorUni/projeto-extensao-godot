@@ -13,7 +13,7 @@ extends Node2D
 var _grabbed_tower: bool = false
 
 func _ready() -> void:
-	LevelLayers.setup($Game, $UI, $Overlay)
+	GameLayers.setup($Game, $UI, $Overlay)
 	GameEvents.tower_purchase_approved.connect(_on_tower_purchase_approved)
 	GameEvents.tower_grabbed.connect(_on_tower_grabbed)
 	if debug_tower_events:
@@ -35,7 +35,7 @@ func _on_tower_grabbed(tower_data: TowerData) -> void:
 
 func _create_ghost_tower(tower_data: TowerData):
 	var ghost_tower = GhostTower.new(tower_data)
-	LevelLayers.add_child_overlay(ghost_tower)
+	GameLayers.add_child_overlay(ghost_tower)
 
 func _on_tower_dropped() -> void:
 	_grabbed_tower = false
@@ -75,9 +75,9 @@ func _build_level_ui() -> void:
 
 	var shop_instance = shop_bar_scene.instantiate() as ShopBar
 	shop_instance.position = Vector2(16, 30)
-	LevelLayers.add_child_ui(shop_instance)
+	GameLayers.add_child_ui(shop_instance)
 	shop_instance.setup(level_towers)
 
 	var currency_counter_instance = currency_counter_scene.instantiate() as CurrencyCounter
 	currency_counter_instance.position = Vector2(16, 4)
-	LevelLayers.add_child_ui(currency_counter_instance)
+	GameLayers.add_child_ui(currency_counter_instance)

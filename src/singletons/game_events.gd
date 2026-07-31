@@ -11,3 +11,6 @@ signal tower_purchase_denied(tower_data: TowerData)
 signal currency_collected(value: int)
 signal currency_changed(new_currency: int)
 signal currency_generated(value: int)
+
+signal enemy_spawned(enemy: EnemyData)
+signal enemy_died(enemy: EnemyData)

@@ -18,7 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 GameEvents="*uid://crqp0jyefws35"
-LevelLayers="*uid://rhe37ccml5dy"
+GameLayers="*uid://rhe37ccml5dy"
 
 [display]
 
