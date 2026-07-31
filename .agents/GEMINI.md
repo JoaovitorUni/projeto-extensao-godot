@@ -41,13 +41,13 @@ protect-city/
         │       └── main.tscn              # Cena raiz do nível
         │   ├── currency_spawner/    # Cenas que compõem um level
         │   └── economy/             # Cenas que compõem um level
-        ├── towers/        # Cenas e scripts das torres reais
-        │   └── placeholder/               # Ex: Torre básica/teste
+        ├── towers/        # Ecossistema de Torres (Lógica, Cenas e Recursos)
+        │   ├── definitions/               # Scripts de definição de recursos (.gd)
+        │   ├── resources/                 # Instâncias configuradas (.tres)
+        │   ├── generator/                 # Cena e lógica da torre geradora
+        │   └── placeholder/               # Cena e lógica da torre placeholder (básica)
         ├── singletons/    # Autoloads globais
         │   └── game_events.gd             # Event Bus do jogo
-        ├── resources/     # Definições de Data-Driven
-        │   ├── tower_data.gd              # Script do resource base de torres
-        │   └── towers/                    # Instâncias (.tres) das torres
         ├── components/    # Nodes lógicos reutilizáveis (Health, Attack, etc.)
         └── ui/            # Elementos de interface globais
 ```

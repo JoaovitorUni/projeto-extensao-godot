@@ -3,13 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://ufcqmx2rq0ij" path="res://src/levels/street/grid/game_grid.tscn" id="1_havfo"]
 [ext_resource type="Script" uid="uid://ch1eyl77mutss" path="res://src/levels/street/scripts/main.gd" id="1_yaeqf"]
 [ext_resource type="PackedScene" uid="uid://dyle0knba53np" path="res://src/levels/economy/game_economy.tscn" id="2_3pqj8"]
-[ext_resource type="Resource" uid="uid://c07y0vyhej837" path="res://src/resources/towers/placeholder_tower.tres" id="3_7c5if"]
+[ext_resource type="Resource" uid="uid://c07y0vyhej837" path="res://src/towers/resources/placeholder_tower.tres" id="3_7c5if"]
 [ext_resource type="PackedScene" uid="uid://cy7ac24beiw1v" path="res://src/levels/money_spawner/currency_spawner.tscn" id="3_pja8f"]
-[ext_resource type="Resource" uid="uid://xcni02wd2uis" path="res://src/resources/towers/generator_tower.tres" id="4_3rry2"]
+[ext_resource type="Resource" uid="uid://xcni02wd2uis" path="res://src/towers/resources/generator_tower.tres" id="4_3rry2"]
 [ext_resource type="PackedScene" uid="uid://dib7udbsyklcn" path="res://src/levels/money_spawner/currency/currency.tscn" id="6_pja8f"]
 [ext_resource type="PackedScene" uid="uid://ct3legr8dcusl" path="res://src/ui/shop_bar/shop_bar.tscn" id="8_l20xl"]
 [ext_resource type="PackedScene" uid="uid://c6qgqvw5avm5a" path="res://src/ui/currency_counter/currency_counter.tscn" id="10_3rry2"]
-[ext_resource type="Script" uid="uid://cyf1g7yivhapi" path="res://src/resources/tower_data.gd" id="10_t1l06"]
+[ext_resource type="Script" uid="uid://cyf1g7yivhapi" path="res://src/towers/definitions/tower_data.gd" id="10_t1l06"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_havfo"]
 
