@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://6vv3q7qnihe6" path="res://src/components/combat/hurtbox_component.gd" id="5_1q8fn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1q8fn"]
-size = Vector2(35, 32)
+size = Vector2(4, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1trsv"]
 size = Vector2(32, 32)
@@ -17,6 +17,7 @@ size = Vector2(32, 32)
 script = ExtResource("1_basic_enemy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=757802549]
+unique_name_in_owner = true
 texture = ExtResource("2_1trsv")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=816064668]
@@ -36,7 +37,7 @@ script = ExtResource("4_seylv")
 metadata/_custom_type_script = "uid://c8wgejtq2j4rq"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent" unique_id=1578890862]
-position = Vector2(-1.5, 0)
+position = Vector2(-19, 0)
 shape = SubResource("RectangleShape2D_1q8fn")
 
 [node name="HurtboxComponent" type="Area2D" parent="." unique_id=194017858]
