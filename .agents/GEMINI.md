@@ -47,7 +47,8 @@ protect-city/
         │   ├── generator/                 # Cena e lógica da torre geradora
         │   └── placeholder/               # Cena e lógica da torre placeholder (básica)
         ├── singletons/    # Autoloads globais
-        │   └── game_events.gd             # Event Bus do jogo
+        │   ├── game_events.gd             # Event Bus do jogo
+        │   └── game_layers.gd             # Canvas Layers e Physics Layers do jogo
         ├── components/    # Nodes lógicos reutilizáveis (Health, Attack, etc.)
         └── ui/            # Elementos de interface globais
 ```
@@ -67,10 +68,23 @@ protect-city/
     - `tower_purchase_denied`: Emitido pelo sistema de economia se o jogador não tiver saldo suficiente.
     - `currency_collected`: Avisa ao sistema que dinheiro foi recolhida, o valor é passado como parâmetro valor.
     - `currency_changed`: Emitido pelo gerenciador de economia sempre que o saldo total do jogador sofre alteração.
+    - `enemy_spawned`: Disparado quando um inimigo é instanciado.
+    - `enemy_died`: Disparado quando um inimigo é morto.
 
-**TowerData (Resource)**
-- Responsabilidade: Contêiner de dados puros (Data-Driven). Define os atributos de uma torre.
-- Composição: Armazena atributos numéricos (custo, vida), visuais (textura base) e a referência estrita à cena real (`PackedScene`) que deve ser instanciada no jogo.
+**GameLayers.gd**
+- Responsabilidade: Gerenciador Global de Camadas e Regras do Mundo (Singleton).
+- Camadas: Possui aa (game, ui, overlay) e aa (1, 2, 4, 8).
+    - `game`: Onde a ação do jogo acontece (Torres, Inimigos, Projéteis, etc...).
+    - `ui`: Elementos estáticos da interface (HUD, contador de moedas, botões de compra, etc...). Fica fixo na tela.
+    - `overlay`: A camada superior. Ideal para o GhostTower (a torre fantasma sendo arrastada), tooltips, efeitos de transição de tela ou menus de pause.
+    - `LAYER_TOWER_HURTBOX`: Recebe dano de inimigos.
+    - `LAYER_ENEMY_HURTBOX`: Recebe dano de torres.
+    - `LAYER_ENEMY_ATTACK`: Detecta Layer 1 (torres).
+    - `LAYER_TOWER_ATTACK`: Detecta Layer 2 (inimigos).
+
+**TowerData e EnemyData (Resource)**
+- Responsabilidade: Contêiner de dados puros (Data-Driven). Define os atributos base uma torre (TowerData) e inimigo (EnemyData).
+- Composição: Armazena atributos numéricos (vida), visuais (textura) e a referência estrita à cena real (`PackedScene`) que deve ser instanciada no jogo.
 - Abstração: Evita o uso de "magic numbers" soltos no código e padroniza a criação de novas torres pelo Editor.
 
 **GridManager.gd**
