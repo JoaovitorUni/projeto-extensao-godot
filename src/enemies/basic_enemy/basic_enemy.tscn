@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dnf6wm2bhov0e"]
+
+[ext_resource type="Script" uid="uid://bt1c5hsbaiebe" path="res://src/enemies/basic_enemy/basic_enemy.gd" id="1_basic_enemy"]
+[ext_resource type="Texture2D" uid="uid://c8wfnredt3r4d" path="res://assets/sprites/tower_placeholder.png" id="2_1trsv"]
+[ext_resource type="Script" uid="uid://dpdh1qc0w5xju" path="res://src/components/combat/health_component.gd" id="2_qhl5d"]
+[ext_resource type="Script" uid="uid://nk8x1jkqivyh" path="res://src/components/movement/linear_movement_component.gd" id="3_8n1jy"]
+[ext_resource type="Script" uid="uid://c8wgejtq2j4rq" path="res://src/components/combat/attack_component.gd" id="4_seylv"]
+[ext_resource type="Script" uid="uid://6vv3q7qnihe6" path="res://src/components/combat/hurtbox_component.gd" id="5_1q8fn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1q8fn"]
+size = Vector2(35, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1trsv"]
+size = Vector2(32, 32)
+
+[node name="BasicEnemy" type="Node2D" unique_id=576892302]
+script = ExtResource("1_basic_enemy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=757802549]
+texture = ExtResource("2_1trsv")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=816064668]
+unique_name_in_owner = true
+script = ExtResource("2_qhl5d")
+max_health = 0.0
+metadata/_custom_type_script = "uid://dpdh1qc0w5xju"
+
+[node name="LinearMovementComponent" type="Node" parent="." unique_id=809072327]
+unique_name_in_owner = true
+script = ExtResource("3_8n1jy")
+metadata/_custom_type_script = "uid://nk8x1jkqivyh"
+
+[node name="AttackComponent" type="Area2D" parent="." unique_id=1628118544]
+unique_name_in_owner = true
+script = ExtResource("4_seylv")
+metadata/_custom_type_script = "uid://c8wgejtq2j4rq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent" unique_id=1578890862]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_1q8fn")
+
+[node name="HurtboxComponent" type="Area2D" parent="." unique_id=194017858]
+unique_name_in_owner = true
+script = ExtResource("5_1q8fn")
+metadata/_custom_type_script = "uid://6vv3q7qnihe6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=1197548355]
+shape = SubResource("RectangleShape2D_1trsv")
