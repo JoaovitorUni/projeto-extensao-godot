@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dd1hmbijtq8kh"]
+
+[ext_resource type="Script" uid="uid://wktxxupwnamx" path="res://src/towers/generator/generator_tower.gd" id="1_gentower"]
+[ext_resource type="Script" uid="uid://c1rph0quq502h" path="res://src/components/towers/currency_generator_component.gd" id="2_gencmp"]
+[ext_resource type="PackedScene" uid="uid://dib7udbsyklcn" path="res://src/levels/money_spawner/currency/currency.tscn" id="3_curscene"]
+[ext_resource type="Texture2D" uid="uid://c8wfnredt3r4d" path="res://assets/sprites/tower_placeholder.png" id="4_sprplace"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0pjno"]
+size = Vector2(40, 0)
+
+[node name="GeneratorTower" type="Node2D" unique_id=39043973]
+script = ExtResource("1_gentower")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1194715713]
+texture = ExtResource("4_sprplace")
+
+[node name="CurrencyGeneratorComponent" type="Node2D" parent="." unique_id=1513892319]
+script = ExtResource("2_gencmp")
+currency_scene = ExtResource("3_curscene")
+debug = true
+
+[node name="GeneratorSpawnArea" type="Area2D" parent="CurrencyGeneratorComponent" unique_id=1408541771]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CurrencyGeneratorComponent/GeneratorSpawnArea" unique_id=1821143347]
+shape = SubResource("RectangleShape2D_0pjno")

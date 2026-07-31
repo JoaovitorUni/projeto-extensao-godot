@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dyle0knba53np" path="res://src/levels/economy/game_economy.tscn" id="2_3pqj8"]
 [ext_resource type="Resource" uid="uid://c07y0vyhej837" path="res://src/resources/towers/placeholder_tower.tres" id="3_7c5if"]
 [ext_resource type="PackedScene" uid="uid://cy7ac24beiw1v" path="res://src/levels/money_spawner/currency_spawner.tscn" id="3_pja8f"]
+[ext_resource type="Resource" uid="uid://xcni02wd2uis" path="res://src/resources/towers/generator_tower.tres" id="4_3rry2"]
 [ext_resource type="PackedScene" uid="uid://dib7udbsyklcn" path="res://src/levels/money_spawner/currency/currency.tscn" id="6_pja8f"]
 [ext_resource type="PackedScene" uid="uid://ct3legr8dcusl" path="res://src/ui/shop_bar/shop_bar.tscn" id="8_l20xl"]
 [ext_resource type="PackedScene" uid="uid://c6qgqvw5avm5a" path="res://src/ui/currency_counter/currency_counter.tscn" id="10_3rry2"]
@@ -14,10 +15,9 @@
 
 [node name="main" type="Node2D" unique_id=935161253]
 script = ExtResource("1_yaeqf")
-level_towers = Array[ExtResource("10_t1l06")]([ExtResource("3_7c5if")])
+level_towers = Array[ExtResource("10_t1l06")]([ExtResource("3_7c5if"), ExtResource("4_3rry2")])
 shop_bar_scene = ExtResource("8_l20xl")
 currency_counter_scene = ExtResource("10_3rry2")
-debug_economy_events = true
 metadata/_edit_horizontal_guides_ = [-34.0]
 
 [node name="Backgroud" type="Sprite2D" parent="." unique_id=2132611659]
