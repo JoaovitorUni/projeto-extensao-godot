@@ -12,5 +12,5 @@ signal currency_collected(value: int)
 signal currency_changed(new_currency: int)
 signal currency_generated(value: int)
 
-signal enemy_spawned(enemy: Node2D)
-signal enemy_died(enemy: Node2D)
+signal enemy_spawned(enemy: EnemyData)
+signal enemy_died(enemy: EnemyData)
