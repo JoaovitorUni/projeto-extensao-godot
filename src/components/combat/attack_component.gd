@@ -12,19 +12,19 @@ signal target_lost
 
 @export var attack_power: float = 10.0
 @export var attack_interval: float = 1.0
-@export var faction: LevelLayers.Faction = LevelLayers.Faction.TOWER
+@export var faction: GameLayers.Faction = GameLayers.Faction.TOWER
 
 var _target_hurtbox: HurtboxComponent = null
 var _attack_timer: Timer
 
 func _ready() -> void:
 	match faction:
-		LevelLayers.Faction.TOWER:
-			collision_layer = LevelLayers.LAYER_TOWER_ATTACK
-			collision_mask = LevelLayers.LAYER_ENEMY_HURTBOX
-		LevelLayers.Faction.ENEMY:
-			collision_layer = LevelLayers.LAYER_ENEMY_ATTACK
-			collision_mask = LevelLayers.LAYER_TOWER_HURTBOX
+		GameLayers.Faction.TOWER:
+			collision_layer = GameLayers.LAYER_TOWER_ATTACK
+			collision_mask = GameLayers.LAYER_ENEMY_HURTBOX
+		GameLayers.Faction.ENEMY:
+			collision_layer = GameLayers.LAYER_ENEMY_ATTACK
+			collision_mask = GameLayers.LAYER_TOWER_HURTBOX
 
 	_attack_timer = Timer.new()
 	_attack_timer.one_shot = false

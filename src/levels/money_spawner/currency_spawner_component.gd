@@ -76,7 +76,7 @@ func _spawn_currency_in_grid_bounds() -> void:
 
 	var target_global_y = random_global_y
 
-	LevelLayers.add_child_overlay(currency_instance)
+	GameLayers.add_child_overlay(currency_instance)
 	currency_instance.setup(spawn_global_pos, target_global_y)
 
 func _show_debug_target_area() -> void:
@@ -91,4 +91,4 @@ func _show_debug_target_area() -> void:
 	debug_rect.global_position = _target_area.position
 	debug_rect.size = _target_area.size
 	
-	LevelLayers.add_child_overlay(debug_rect)
+	GameLayers.add_child_overlay(debug_rect)

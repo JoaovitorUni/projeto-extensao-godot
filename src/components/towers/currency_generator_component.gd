@@ -37,7 +37,7 @@ func _spawn_collectable(value: int) -> void:
 	if get_parent():
 		currency_instance.name = "Currency_%s" % get_parent().name
 
-	LevelLayers.add_child_overlay(currency_instance)
+	GameLayers.add_child_overlay(currency_instance)
 
 	var local_spawn_pos := _get_random_point_in_spawn_area()
 	var target_global_pos := _spawn_area_node.to_global(local_spawn_pos)
