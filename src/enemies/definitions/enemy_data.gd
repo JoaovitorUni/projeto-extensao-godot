@@ -4,6 +4,7 @@ class_name EnemyData
 @export_category("Data")
 @export var name: String = ""
 @export var scene: PackedScene
+@export var spawn_cost: int
 
 @export_category("Stats")
 @export var max_health: float = 100.0
