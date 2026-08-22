@@ -15,3 +15,16 @@ class_name EnemyData
 
 @export_category("Art")
 @export var texture: Texture2D
+
+## Instancia a cena associada, injeta a si mesmo como 'data' e aplica a posição global.
+func instantiate_entity() -> Node:
+	_validate_resource()
+	var instance: Node = scene.instantiate()
+	instance.data = self
+	return instance
+
+func _validate_resource() -> void:
+	assert(scene != null, "O Resource '%s' tentou instanciar uma entidade sem PackedScene atribuída." % name)
+
+func _to_string() -> String:
+	return "EnemyData(%s)" % name

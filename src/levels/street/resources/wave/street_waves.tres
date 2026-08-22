@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelWavesData" format=3 uid="uid://pl02ui212sxk"]
+
+[ext_resource type="Script" uid="uid://dgg55gjga5w0h" path="res://src/levels/wave/definitions/level_waves_data.gd" id="1_l34xo"]
+[ext_resource type="Script" uid="uid://cc5vddfywar7u" path="res://src/levels/wave/definitions/wave_data.gd" id="2_gmct3"]
+[ext_resource type="Resource" uid="uid://bl3i212gv6qfs" path="res://src/levels/street/resources/wave/wave_1.tres" id="3_gmct3"]
+[ext_resource type="Resource" uid="uid://igu25y4otwcb" path="res://src/levels/street/resources/wave/wave_2.tres" id="4_tblbc"]
+[ext_resource type="Resource" uid="uid://cy3ak75fvjpam" path="res://src/levels/street/resources/wave/wave_3.tres" id="5_2rnlg"]
+
+[resource]
+script = ExtResource("1_l34xo")
+waves = Array[ExtResource("2_gmct3")]([ExtResource("3_gmct3"), ExtResource("4_tblbc"), ExtResource("5_2rnlg")])
+metadata/_custom_type_script = "uid://dgg55gjga5w0h"

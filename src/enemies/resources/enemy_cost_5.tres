@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://84ore5qbegee"]
+
+[ext_resource type="Script" uid="uid://bcxcapnbqah84" path="res://src/enemies/definitions/enemy_data.gd" id="1_fd3t0"]
+[ext_resource type="PackedScene" uid="uid://dnf6wm2bhov0e" path="res://src/enemies/basic_enemy/basic_enemy.tscn" id="1_sx0fy"]
+[ext_resource type="Texture2D" uid="uid://c8wfnredt3r4d" path="res://assets/sprites/tower_placeholder.png" id="3_nyn61"]
+
+[resource]
+script = ExtResource("1_fd3t0")
+name = "Custo 5"
+scene = ExtResource("1_sx0fy")
+spawn_cost = 5
+texture = ExtResource("3_nyn61")
+metadata/_custom_type_script = "uid://bcxcapnbqah84"
