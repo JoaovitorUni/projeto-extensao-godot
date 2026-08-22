@@ -10,7 +10,7 @@ class_name BasicEnemy
 @onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
 
 func _ready() -> void:
-	assert(data != null, "EnemyData não configurado no BasicEnemy!")
+	assert(data != null, "Não foi possível carregar o recurso. Verifique se a propriedade 'data' (EnemyData) foi informada.")
 
 	sprite.texture = data.texture
 
@@ -30,11 +30,11 @@ func _ready() -> void:
 	attack_component.target_acquired.connect(movement_component.pause)
 	attack_component.target_lost.connect(movement_component.resume)
 
-	GameEvents.enemy_spawned.emit(data)
+	GameEvents.enemy_spawned.emit(self)
 
 func _on_died() -> void:
 	hurtbox_component.set_deferred("monitorable", false)
 	hurtbox_component.set_deferred("monitoring", false)
 
-	GameEvents.enemy_died.emit(data)
+	GameEvents.enemy_died.emit(self)
 	queue_free()

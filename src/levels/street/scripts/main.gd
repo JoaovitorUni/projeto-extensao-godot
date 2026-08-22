@@ -1,5 +1,7 @@
 extends Node2D
 
+# TODO: Futuramente o objetivo instanciar um Level programaticamente passando as configs que estarão na UI.
+# Fluxo: seleciona Level 1 (Button), botão cria level passando as configurações.
 @export_category("Level Config")
 @export var level_towers: Array[TowerData] = []
 # TODO: Remover isso ao componentizar.
@@ -9,6 +11,9 @@ extends Node2D
 @export_category("Debug")
 @export var debug_tower_events: bool = false
 @export var debug_economy_events: bool = false
+@export var debug_wave_events: bool = false
+
+@onready var wave_manager = $WaveManager
 
 var _grabbed_tower: bool = false
 
@@ -16,11 +21,16 @@ func _ready() -> void:
 	GameLayers.setup($Game, $UI, $Overlay)
 	GameEvents.tower_purchase_approved.connect(_on_tower_purchase_approved)
 	GameEvents.tower_grabbed.connect(_on_tower_grabbed)
+	GameEvents.all_waves_completed.connect(_on_all_waves_completed)
 	if debug_tower_events:
 		_set_debug_tower_events_handlers()
 	if debug_economy_events:
 		_set_debug_economy_events_handlers()
+	if debug_wave_events:
+		_set_debug_wave_events_handlers()
 	_build_level_ui()
+
+	wave_manager.start_level()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and not event.is_pressed() and _grabbed_tower:
@@ -66,6 +76,20 @@ func _set_debug_economy_events_handlers() -> void:
 	GameEvents.currency_changed.connect(func(new_currency: int):
 		print("Evento: currency_changed. New Currency: %d." % new_currency)
 	)
+
+func _set_debug_wave_events_handlers() -> void:
+	GameEvents.wave_started.connect(func(wave_index: int, is_flag_wave: bool):
+		print("Evento: wave_started. Wave Index: %s, Flag Wave: %s." % [wave_index, is_flag_wave])
+	)
+	GameEvents.wave_completed.connect(func(wave_index: int):
+		print("Evento: wave_completed. Wave Index: %s." % wave_index)
+	)
+	GameEvents.all_waves_completed.connect(func(tower_data: TowerData):
+		print("Evento: all_waves_completed. TowerData: %s." % tower_data.name)
+	)
+
+func _on_all_waves_completed() -> void:
+	print("Level Victory: Todas as hordas foram derrotadas!")
 
 # TODO: Componentizar construção da UI.
 func _build_level_ui() -> void:

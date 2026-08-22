@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WaveData" format=3 uid="uid://cy3ak75fvjpam"]
+
+[ext_resource type="Script" uid="uid://bcxcapnbqah84" path="res://src/enemies/definitions/enemy_data.gd" id="1_sxr8p"]
+[ext_resource type="Resource" uid="uid://84ore5qbegee" path="res://src/enemies/resources/enemy_cost_5.tres" id="2_3imdv"]
+[ext_resource type="Script" uid="uid://cc5vddfywar7u" path="res://src/levels/wave/definitions/wave_data.gd" id="2_o1o5w"]
+
+[resource]
+script = ExtResource("2_o1o5w")
+total_budget = 25
+allowed_enemies = Array[ExtResource("1_sxr8p")]([ExtResource("2_3imdv")])
+max_duration = 30.0
+spawn_interval = 3.5
+is_big_wave = true
+metadata/_custom_type_script = "uid://cc5vddfywar7u"

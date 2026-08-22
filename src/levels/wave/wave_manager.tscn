@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cyhnwdoxqdun3"]
+
+[ext_resource type="Script" uid="uid://n0xhy5t1d13o" path="res://src/levels/wave/scripts/wave_manager.gd" id="1_6pcgs"]
+[ext_resource type="Script" uid="uid://cupq588rfs4qf" path="res://src/levels/wave/scripts/lane_spawner.gd" id="2_dytih"]
+[ext_resource type="Script" uid="uid://bj1jpjvmcruj7" path="res://src/levels/wave/scripts/wave_tracker.gd" id="3_bx4ei"]
+
+[node name="WaveManager" type="Node" unique_id=536886317]
+script = ExtResource("1_6pcgs")
+
+[node name="LaneSpawner" type="Node" parent="." unique_id=588935554]
+script = ExtResource("2_dytih")
+metadata/_custom_type_script = "uid://cupq588rfs4qf"
+
+[node name="WaveTracker" type="Node" parent="." unique_id=1893565861]
+script = ExtResource("3_bx4ei")

@@ -12,5 +12,9 @@ signal currency_collected(value: int)
 signal currency_changed(new_currency: int)
 signal currency_generated(value: int)
 
-signal enemy_spawned(enemy: EnemyData)
-signal enemy_died(enemy: EnemyData)
+signal enemy_spawned(enemy_node: Node)
+signal enemy_died(enemy_node: Node)
+
+signal wave_started(wave_index: int, is_flag_wave: bool)
+signal wave_completed(wave_index: int)
+signal all_waves_completed
