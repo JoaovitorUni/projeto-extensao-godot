@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dk4sm7xtk7sxc"]
+
+[ext_resource type="Script" uid="uid://mx4d0450xln0" path="res://src/towers/shooters/shooter_tower.gd" id="1_gvom3"]
+[ext_resource type="Texture2D" uid="uid://c8wfnredt3r4d" path="res://assets/sprites/tower_placeholder.png" id="2_hdn11"]
+[ext_resource type="Script" uid="uid://dpdh1qc0w5xju" path="res://src/components/combat/health_component.gd" id="3_odbhm"]
+[ext_resource type="Script" uid="uid://bq0285rpia4b7" path="res://src/components/combat/cooldown_component.gd" id="3_rflf5"]
+[ext_resource type="Script" uid="uid://co1ao0ud7x7v3" path="res://src/components/combat/detectors/lane_detector_component.gd" id="4_odbhm"]
+[ext_resource type="Script" uid="uid://cwfhgb7sgr8fu" path="res://src/components/combat/projectile_launcher_component.gd" id="4_rflf5"]
+[ext_resource type="PackedScene" uid="uid://ddl3eenx0epdb" path="res://src/towers/shooters/projectiles/basic_projectile.tscn" id="5_tctgv"]
+[ext_resource type="Script" uid="uid://6vv3q7qnihe6" path="res://src/components/combat/hurtbox_component.gd" id="6_olv85"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1iq5h"]
+size = Vector2(32, 32)
+
+[node name="ShooterTower" type="Node2D" unique_id=1011894064]
+script = ExtResource("1_gvom3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=177377295]
+texture = ExtResource("2_hdn11")
+
+[node name="AttackCooldownComponent" type="Node" parent="." unique_id=1094108351]
+unique_name_in_owner = true
+script = ExtResource("3_rflf5")
+metadata/_custom_type_script = "uid://bq0285rpia4b7"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1430833958]
+unique_name_in_owner = true
+script = ExtResource("3_odbhm")
+metadata/_custom_type_script = "uid://dpdh1qc0w5xju"
+
+[node name="LaneDetectorComponent" type="Node2D" parent="." unique_id=32725584]
+unique_name_in_owner = true
+script = ExtResource("4_odbhm")
+metadata/_custom_type_script = "uid://co1ao0ud7x7v3"
+
+[node name="RayCast2D" type="RayCast2D" parent="LaneDetectorComponent" unique_id=1408932043]
+target_position = Vector2(480, 0)
+
+[node name="ProjectileLauncherComponent" type="Node2D" parent="." unique_id=1708690526 node_paths=PackedStringArray("spawn_point")]
+unique_name_in_owner = true
+script = ExtResource("4_rflf5")
+projectile_scene = ExtResource("5_tctgv")
+spawn_point = NodePath("Marker2D")
+metadata/_custom_type_script = "uid://cwfhgb7sgr8fu"
+
+[node name="Marker2D" type="Marker2D" parent="ProjectileLauncherComponent" unique_id=1512941835]
+position = Vector2(16, -6)
+
+[node name="HurtboxComponent" type="Area2D" parent="." unique_id=600468543]
+unique_name_in_owner = true
+script = ExtResource("6_olv85")
+metadata/_custom_type_script = "uid://6vv3q7qnihe6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=77978538]
+shape = SubResource("RectangleShape2D_1iq5h")

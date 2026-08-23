@@ -1,13 +1,18 @@
 [gd_resource type="Resource" script_class="ShooterTowerData" format=3 uid="uid://dgxgss4tkueig"]
 
 [ext_resource type="Script" uid="uid://dic2gxbc1lrho" path="res://src/towers/definitions/shooter_tower_data.gd" id="1_4kn48"]
+[ext_resource type="PackedScene" uid="uid://ddl3eenx0epdb" path="res://src/towers/shooters/projectiles/basic_projectile.tscn" id="1_vawvt"]
+[ext_resource type="PackedScene" uid="uid://dk4sm7xtk7sxc" path="res://src/towers/shooters/shooter_tower.tscn" id="2_3lnex"]
 [ext_resource type="Texture2D" uid="uid://02j64u47o55n" path="res://assets/sprites/shop_slot_placeholder.png" id="2_jqdq5"]
 [ext_resource type="Texture2D" uid="uid://c8wfnredt3r4d" path="res://assets/sprites/tower_placeholder.png" id="3_v1day"]
 
 [resource]
 script = ExtResource("1_4kn48")
+projectile_scene = ExtResource("1_vawvt")
 shoot_cooldown = 3
+name = "ShooterTower"
 max_health = 100.0
+scene = ExtResource("2_3lnex")
 cost = 100
 texture = ExtResource("3_v1day")
 slot_texture = ExtResource("2_jqdq5")

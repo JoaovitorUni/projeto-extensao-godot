@@ -18,7 +18,7 @@ extends Node2D
 var _grabbed_tower: bool = false
 
 func _ready() -> void:
-	GameLayers.setup($Game, $UI, $Overlay)
+	GameLayers.setup($Game, $UI, $Overlay, %TowersContainer, %EnemiesContainer, %ProjectilesContainer)
 	GameEvents.tower_purchase_approved.connect(_on_tower_purchase_approved)
 	GameEvents.tower_grabbed.connect(_on_tower_grabbed)
 	GameEvents.all_waves_completed.connect(_on_all_waves_completed)
