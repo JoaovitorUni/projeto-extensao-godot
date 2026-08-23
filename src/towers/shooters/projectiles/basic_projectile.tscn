@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ddl3eenx0epdb"]
+
+[ext_resource type="Script" uid="uid://ckxddjrgk7vwk" path="res://src/towers/shooters/projectiles/basic_projectile.gd" id="1_ff24i"]
+[ext_resource type="Texture2D" uid="uid://cuqvohn8mowxm" path="res://assets/sprites/basic_projectile.png" id="1_vub0n"]
+[ext_resource type="Script" uid="uid://nk8x1jkqivyh" path="res://src/components/movement/linear_movement_component.gd" id="2_ff24i"]
+[ext_resource type="Script" uid="uid://c0431n4brpq6r" path="res://src/components/combat/hitbox_component.gd" id="3_i0kk5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgw7k"]
+size = Vector2(16, 16)
+
+[node name="BasicProjectile" type="Node2D" unique_id=254833514]
+script = ExtResource("1_ff24i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=851270053]
+texture = ExtResource("1_vub0n")
+
+[node name="LinearMovementComponent" type="Node" parent="." unique_id=398665514 node_paths=PackedStringArray("target_node")]
+unique_name_in_owner = true
+script = ExtResource("2_ff24i")
+target_node = NodePath("..")
+speed = 0.2
+direction = Vector2(1, 0)
+metadata/_custom_type_script = "uid://nk8x1jkqivyh"
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=1331844688]
+unique_name_in_owner = true
+script = ExtResource("3_i0kk5")
+metadata/_custom_type_script = "uid://c0431n4brpq6r"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=524896056]
+shape = SubResource("RectangleShape2D_fgw7k")
