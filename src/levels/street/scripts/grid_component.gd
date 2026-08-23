@@ -36,13 +36,13 @@ func _try_place_tower() -> void:
 	var mouse_pos: Vector2 = get_global_mouse_position()
 	if grid_manager.can_place(mouse_pos):
 		var cell = grid_manager.get_grid_cell(mouse_pos)
-		var cell_center_pos = grid_manager.get_cell_position(mouse_pos)
+		var cell_center_pos = grid_manager.get_cell_position_global(mouse_pos)
 
 		var tower = _selected_tower_data.scene.instantiate()
 		tower.name = "%s_%s" % [tower.name, cell]
 		tower.data = _selected_tower_data
 		tower.global_position = cell_center_pos
-		add_child(tower)
+		GameLayers.add_child_tower(tower)
 		
 		grid_manager.place(mouse_pos, tower)
 		GameEvents.tower_placed.emit(_selected_tower_data)

@@ -24,7 +24,7 @@ func _ready() -> void:
 
 	projectile_launcher_component.projectile_scene = data.projectile_scene
 
-	lane_detector_component.target_detected.connect(attack_cooldown_component.start)
+	lane_detector_component.target_detected.connect(func(): attack_cooldown_component.start(true))
 	lane_detector_component.target_lost.connect(attack_cooldown_component.stop)
 			
 	attack_cooldown_component.cooldown_finished.connect(projectile_launcher_component.launch)

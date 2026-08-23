@@ -17,8 +17,10 @@ func _ready() -> void:
 	_timer.timeout.connect(_on_timer_timeout)
 	add_child(_timer)
 
-func start() -> void:
+func start(trigger_immediately: bool = false) -> void:
 	if _timer.is_stopped():
+		if trigger_immediately:
+			cooldown_finished.emit()
 		_timer.start()
 
 func stop() -> void:

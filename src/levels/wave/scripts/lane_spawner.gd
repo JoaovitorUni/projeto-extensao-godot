@@ -19,6 +19,7 @@ func spawn_enemy(enemy_data: EnemyData) -> Node:
 	var spawn_pos: Vector2 = grid_manager.get_lane_spawn_position(chosen_lane)
 
 	var enemy_instance: Node = enemy_data.instantiate_entity()
+	enemy_instance.name = "%s_%s_%s" % [enemy_data.name, chosen_lane, ResourceUID.create_id()]
 	enemy_instance.global_position = spawn_pos
 
 	enemy_container.add_child(enemy_instance)
