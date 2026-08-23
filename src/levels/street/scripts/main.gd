@@ -11,6 +11,7 @@ extends Node2D
 @onready var wave_manager = $WaveManager
 
 var _grabbed_tower: bool = false
+var _wave_start_timer: Timer
 
 func _ready() -> void:
 	GameLayers.setup($Game, $UI, $Overlay, %TowersContainer, %EnemiesContainer, %ProjectilesContainer)
@@ -18,7 +19,13 @@ func _ready() -> void:
 	GameEvents.tower_grabbed.connect(_on_tower_grabbed)
 	_build_level_ui()
 
-	wave_manager.start_level()
+	_wave_start_timer = Timer.new()
+	_wave_start_timer.autostart = true
+	_wave_start_timer.one_shot = true
+	_wave_start_timer.wait_time = 20
+	_wave_start_timer.timeout.connect(func(): wave_manager.start_level())
+	add_child(_wave_start_timer)
+	
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and not event.is_pressed() and _grabbed_tower:
@@ -38,8 +45,6 @@ func _create_ghost_tower(tower_data: TowerData):
 func _on_tower_dropped() -> void:
 	_grabbed_tower = false
 	GameEvents.tower_dropped.emit()
-
-
 
 # TODO: Componentizar construção da UI.
 func _build_level_ui() -> void:

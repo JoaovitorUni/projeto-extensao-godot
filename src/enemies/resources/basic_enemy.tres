@@ -9,4 +9,6 @@ script = ExtResource("1_enemydata")
 name = "Inimigo Básico"
 scene = ExtResource("1_xem74")
 spawn_cost = 3
+max_health = 70.0
+move_speed = 15.0
 texture = ExtResource("3_2i42q")

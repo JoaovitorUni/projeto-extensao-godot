@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://cyf1g7yivhapi" path="res://src/towers/definitions/tower_data.gd" id="10_t1l06"]
 [ext_resource type="PackedScene" uid="uid://cyhnwdoxqdun3" path="res://src/levels/wave/wave_manager.tscn" id="11_wave"]
 [ext_resource type="Script" uid="uid://y0gr5v5wmld1" path="res://src/levels/manager/defeat_zone.gd" id="12_1knsd"]
-[ext_resource type="Resource" uid="uid://dgxgss4tkueig" path="res://src/towers/resources/shooter_tower_data.tres" id="14_wtgkk"]
+[ext_resource type="Resource" uid="uid://dgxgss4tkueig" path="res://src/towers/resources/shooter_tower.tres" id="14_wtgkk"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_havfo"]
 
@@ -43,7 +43,6 @@ enemy_container = NodePath("../Game/EnemiesContainer")
 grid_manager = NodePath("../Game/GridComponent/grid")
 
 [node name="EconomyComponent" parent="." unique_id=2117294381 instance=ExtResource("2_3pqj8")]
-initial_currency = 200
 
 [node name="Game" type="CanvasLayer" parent="." unique_id=750499585]
 layer = 0
