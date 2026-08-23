@@ -21,7 +21,6 @@ func _ready() -> void:
 	GameLayers.setup($Game, $UI, $Overlay, %TowersContainer, %EnemiesContainer, %ProjectilesContainer)
 	GameEvents.tower_purchase_approved.connect(_on_tower_purchase_approved)
 	GameEvents.tower_grabbed.connect(_on_tower_grabbed)
-	GameEvents.all_waves_completed.connect(_on_all_waves_completed)
 	if debug_tower_events:
 		_set_debug_tower_events_handlers()
 	if debug_economy_events:
@@ -87,9 +86,6 @@ func _set_debug_wave_events_handlers() -> void:
 	GameEvents.all_waves_completed.connect(func(tower_data: TowerData):
 		print("Evento: all_waves_completed. TowerData: %s." % tower_data.name)
 	)
-
-func _on_all_waves_completed() -> void:
-	print("Level Victory: Todas as hordas foram derrotadas!")
 
 # TODO: Componentizar construção da UI.
 func _build_level_ui() -> void:

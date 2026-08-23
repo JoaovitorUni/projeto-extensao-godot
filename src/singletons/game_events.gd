@@ -18,3 +18,8 @@ signal enemy_died(enemy_node: Node)
 signal wave_started(wave_index: int, is_flag_wave: bool)
 signal wave_completed(wave_index: int)
 signal all_waves_completed
+
+signal level_victory
+signal level_defeat
+
+signal base_breached
