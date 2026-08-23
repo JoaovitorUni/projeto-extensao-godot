@@ -19,6 +19,7 @@ config/icon="res://assets/icon.svg"
 
 GameEvents="*uid://crqp0jyefws35"
 GameLayers="*uid://rhe37ccml5dy"
+GameDebug="*uid://cylyidu6wxtal"
 
 [display]
 
