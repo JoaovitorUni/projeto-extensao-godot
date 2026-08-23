@@ -1,10 +1,37 @@
 [gd_scene format=3 uid="uid://c50jpu8gnlier"]
 
 [ext_resource type="Script" uid="uid://crnku2egpq4rd" path="res://src/towers/placeholder/placeholder_tower.gd" id="1_yprw4"]
+[ext_resource type="Script" uid="uid://dpdh1qc0w5xju" path="res://src/components/combat/health_component.gd" id="3_33lc7"]
 [ext_resource type="Texture2D" uid="uid://c8wfnredt3r4d" path="res://assets/sprites/tower_placeholder.png" id="3_vgynr"]
+[ext_resource type="Script" uid="uid://co1ao0ud7x7v3" path="res://src/components/combat/detectors/lane_detector_component.gd" id="3_xna88"]
+[ext_resource type="Script" uid="uid://6vv3q7qnihe6" path="res://src/components/combat/hurtbox_component.gd" id="5_akfjp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owsdv"]
+size = Vector2(32, 32)
 
 [node name="PlaceholderTower" type="Node2D" unique_id=84750616]
 script = ExtResource("1_yprw4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=918829849]
 texture = ExtResource("3_vgynr")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1713606370]
+unique_name_in_owner = true
+script = ExtResource("3_33lc7")
+metadata/_custom_type_script = "uid://dpdh1qc0w5xju"
+
+[node name="LaneDetectorComponent" type="Node2D" parent="." unique_id=707683072]
+unique_name_in_owner = true
+script = ExtResource("3_xna88")
+metadata/_custom_type_script = "uid://co1ao0ud7x7v3"
+
+[node name="RayCast2D" type="RayCast2D" parent="LaneDetectorComponent" unique_id=1475987496]
+target_position = Vector2(480, 0)
+
+[node name="HurtboxComponent" type="Area2D" parent="." unique_id=1235773132]
+unique_name_in_owner = true
+script = ExtResource("5_akfjp")
+metadata/_custom_type_script = "uid://6vv3q7qnihe6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=2035223586]
+shape = SubResource("RectangleShape2D_owsdv")

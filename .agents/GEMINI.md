@@ -159,3 +159,18 @@ protect-city/
 - Responsabilidade: Gerar periodicamente coletáveis de moeda e disparar o evento de geração.
 - Workflow: Utiliza um `Timer` autostart alimentado por `GeneratorTowerData`, gerando um nó de moeda (`Currency`) na camada overlay com uma animação parabólica procedural (`Tween`) em um ponto aleatório da sua `GeneratorSpawnArea`.
 - Eventos Relacionados: Emite `currency_generated`.
+
+**LaneDetectorComponent.gd**
+- Responsabilidade: Detectar inimigos na linha de visão da torre.
+- Encapsulamento: Utiliza um array de `RayCast2D` configurado via Inspector, ajustando automaticamente a `collision_mask` com base na facção (`TOWER` ou `ENEMY`).
+- Eventos Relacionados: Emite `target_detected` (ao colidir) e `target_lost` (quando limpo), ideal para dar start/stop no `AttackCooldownComponent`.
+
+**ProjectileLauncherComponent.gd**
+- Responsabilidade: Instanciar e lançar projéteis no mundo de jogo na posição correta.
+- Encapsulamento: Exige uma cena de projétil (`PackedScene`) e opcionalmente um ponto de disparo (`Marker2D`). Adiciona o projétil instanciado diretamente no `GameLayers.game`, delegando a responsabilidade de dano e movimento 100% para os componentes do próprio projétil (`HitboxComponent` e `LinearMovementComponent`).
+- Workflow: Chamado ativamente via método `launch()`, geralmente disparado pelo fim do `AttackCooldownComponent`.
+
+**AttackCooldownComponent.gd**
+- Responsabilidade: Encapsular o tempo de recarga (cooldown) entre ataques de uma torre ou inimigo.
+- Abstração: Cria e gerencia internamente um `Timer` para isolar a lógica de tempo.
+- Eventos Relacionados: Emite `cooldown_finished` quando o tempo de recarga termina, sinalizando que a entidade está pronta para agir (ex: acionar o `ProjectileLauncherComponent`).
