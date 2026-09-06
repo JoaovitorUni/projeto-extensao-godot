@@ -9,12 +9,17 @@
 [ext_resource type="Resource" uid="uid://pl02ui212sxk" path="res://src/levels/street/resources/wave/street_waves.tres" id="5_824ea"]
 [ext_resource type="PackedScene" uid="uid://dib7udbsyklcn" path="res://src/levels/money_spawner/currency/currency.tscn" id="6_pja8f"]
 [ext_resource type="PackedScene" uid="uid://ct3legr8dcusl" path="res://src/ui/shop_bar/shop_bar.tscn" id="8_l20xl"]
+[ext_resource type="Script" uid="uid://da785glq2wxi5" path="res://src/levels/manager/level_manager.gd" id="8_wtgkk"]
 [ext_resource type="PackedScene" uid="uid://c6qgqvw5avm5a" path="res://src/ui/currency_counter/currency_counter.tscn" id="10_3rry2"]
 [ext_resource type="Script" uid="uid://cyf1g7yivhapi" path="res://src/towers/definitions/tower_data.gd" id="10_t1l06"]
 [ext_resource type="PackedScene" uid="uid://cyhnwdoxqdun3" path="res://src/levels/wave/wave_manager.tscn" id="11_wave"]
-[ext_resource type="Resource" uid="uid://dgxgss4tkueig" path="res://src/towers/resources/shooter_tower_data.tres" id="14_wtgkk"]
+[ext_resource type="Script" uid="uid://y0gr5v5wmld1" path="res://src/levels/manager/defeat_zone.gd" id="12_1knsd"]
+[ext_resource type="Resource" uid="uid://dgxgss4tkueig" path="res://src/towers/resources/shooter_tower.tres" id="14_wtgkk"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_havfo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7qff"]
+size = Vector2(28, 200)
 
 [node name="main" type="Node2D" unique_id=935161253]
 script = ExtResource("1_yaeqf")
@@ -28,16 +33,26 @@ position = Vector2(240, 134.99998)
 scale = Vector2(480, 270)
 texture = SubResource("CanvasTexture_havfo")
 
+[node name="LevelManager" type="Node" parent="." unique_id=1963953001]
+script = ExtResource("8_wtgkk")
+metadata/_custom_type_script = "uid://da785glq2wxi5"
+
 [node name="WaveManager" parent="." unique_id=536886317 node_paths=PackedStringArray("enemy_container", "grid_manager") instance=ExtResource("11_wave")]
 level_waves = ExtResource("5_824ea")
 enemy_container = NodePath("../Game/EnemiesContainer")
 grid_manager = NodePath("../Game/GridComponent/grid")
 
 [node name="EconomyComponent" parent="." unique_id=2117294381 instance=ExtResource("2_3pqj8")]
-initial_currency = 200
 
 [node name="Game" type="CanvasLayer" parent="." unique_id=750499585]
 layer = 0
+
+[node name="DefeatZone" type="Area2D" parent="Game" unique_id=1835389631]
+script = ExtResource("12_1knsd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/DefeatZone" unique_id=2001885061]
+position = Vector2(85, 129)
+shape = SubResource("RectangleShape2D_g7qff")
 
 [node name="GridComponent" parent="Game" unique_id=575331148 instance=ExtResource("1_havfo")]
 position = Vector2(120, 30)

@@ -3,6 +3,9 @@ class_name GridManager
 
 var _placed_objects: Dictionary = {}
 
+func _ready() -> void:
+	GameEvents.tower_died.connect(_on_tower_died)
+
 func is_within_grid(global_pos: Vector2) -> bool:
 	var local_pos = to_local(global_pos)
 	var cell = local_to_map(local_pos)
@@ -32,6 +35,12 @@ func place(global_pos: Vector2, node: Node2D):
 	var cell = get_grid_cell(global_pos)
 	_placed_objects[cell] = node
 
+func remove_tower(tower_node: Node2D) -> void:
+	for cell in _placed_objects.keys():
+		if _placed_objects[cell] == tower_node:
+			_placed_objects.erase(cell)
+			break
+
 func get_lanes() -> Array[int]:
 	var rect: Rect2i = get_used_rect()
 	var lanes: Array[int] = []
@@ -46,3 +55,6 @@ func get_lane_spawn_position(lane_y: int) -> Vector2:
 
 	var spawn_cell := Vector2i(grid_rect.end.x, lane_y)
 	return to_global(map_to_local(spawn_cell))
+
+func _on_tower_died(tower_node: Node2D) -> void:
+	remove_tower(tower_node)

@@ -15,6 +15,7 @@ texture = ExtResource("2_wricm")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=334390856]
 script = ExtResource("3_wlsgi")
+value = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=722706296]
 shape = SubResource("RectangleShape2D_ukmhj")

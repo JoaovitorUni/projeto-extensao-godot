@@ -29,4 +29,5 @@ func _ready() -> void:
 func _on_died() -> void:
 	hurtbox_component.set_deferred("monitorable", false)
 	hurtbox_component.set_deferred("monitoring", false)
+	GameEvents.tower_died.emit(self)
 	queue_free()

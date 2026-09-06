@@ -77,4 +77,3 @@ func add_child_projectile(node_instance: Node) -> void:
 		projectiles_layer.add_child(node_instance)
 	else:
 		add_child_game(node_instance)
-
